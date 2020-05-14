@@ -12,7 +12,7 @@ RUN apk add --no-cache --update \
 ARG TERRARIA_VERSION=1353
 
 RUN apk add --no-cache --update --virtual build-dependencies wget unzip && \
-    wget -O /tmp/terraria-$TERRARIA_VERSION.zip http://terraria.org/server/terraria-server-$VANILLA_VERSION.zip && \
+    wget -O /tmp/terraria-$TERRARIA_VERSION.zip http://terraria.org/server/terraria-server-$TERRARIA_VERSION.zip && \
     ls -l /tmp && \
     mkdir -p /opt && \
     unzip /tmp/terraria-$TERRARIA_VERSION.zip -d /opt && \
