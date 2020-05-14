@@ -5,9 +5,9 @@ LABEL maintainer frosty5689 <frosty5689@gmail.com>
 RUN apk add --no-cache --update \
     ca-certificates \
     tzdata \
-    mono \
-    screen \
- && update-ca-certificates
+    screen && \
+    apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
+    update-ca-certificates
 
 ARG TERRARIA_VERSION=1353
 
