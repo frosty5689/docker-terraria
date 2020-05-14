@@ -1,4 +1,4 @@
-FROM alpine:3.11-alpine
+FROM alpine:3.11
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
