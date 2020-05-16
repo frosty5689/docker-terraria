@@ -1,6 +1,7 @@
 #!/bin/sh
+set -euo pipefail
 
-CMD="mono ./TerrariaServer.exe -x64 -config /config/serverconfig.txt -banlist /config/banlist.txt"
+CMD="mono --server --gc=sgen -O=all TerrariaServer.exe -config /config/serverconfig.txt -banlist /config/banlist.txt"
 
 # Create default config files if they don't exist
 if [ ! -f "/config/serverconfig.txt" ]; then
@@ -41,8 +42,8 @@ term_handler() {
 
 # setup handlers
 # on callback, kill the last background process, which is `tail -f /dev/null` and execute the specified handler
-trap 'kill ${!}; my_handler' USR1
-trap 'kill ${!}; term_handler' TERM
+trap 'kill ${!}; my_handler' SIGUSR1
+trap 'kill ${!}; term_handler' SIGTERM
 
 # run application
 $CMD &

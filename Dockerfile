@@ -1,8 +1,12 @@
-FROM alpine:3.11 as base
+FROM alpine:3.11
+
+LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
 RUN apk add --no-cache --update \
     ca-certificates \
-    tzdata && \
+    tzdata \
+    screen && \
+    apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
     update-ca-certificates
 
 ARG TERRARIA_VERSION=1353
@@ -20,16 +24,6 @@ RUN apk add --no-cache --update --virtual build-dependencies wget unzip && \
     apk del build-dependencies
 
 ADD run/* /opt/terraria/
-
-FROM mono:6.8
-
-LABEL maintainer frosty5689 <frosty5689@gmail.com>
-
-RUN apt-get update \
-    && apt-get install -y screen \
-    && rm -rf /var/lib/apt/lists/* /tmp/*
-
-COPY --from=base /opt/terraria /opt/terraria
 
 VOLUME /config
 

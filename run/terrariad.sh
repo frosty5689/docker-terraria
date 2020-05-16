@@ -6,7 +6,7 @@ inject="screen -S terraria -X stuff $send"
 
 if [ "$1" = "attach" ] ; then cmd="$attach" ; else cmd="$inject" ; fi
 
-if [ "`stat -c '%u' /var/run/screen/S-root/`" = "$UID" ]
+if [ "`stat -c '%u' /tmp/screens/S-root/`" = "$UID" ]
 then
     $cmd
 else
