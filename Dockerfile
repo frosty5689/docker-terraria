@@ -21,7 +21,7 @@ RUN apk add --no-cache --update --virtual build-dependencies wget unzip && \
 
 ADD run/* /opt/terraria/
 
-FROM mono:6.80
+FROM mono:6.8
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
