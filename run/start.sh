@@ -1,5 +1,4 @@
 #!/bin/sh
-set -euo pipefail
 
 CMD="mono ./TerrariaServer.exe -x64 -config /config/serverconfig.txt -banlist /config/banlist.txt"
 
