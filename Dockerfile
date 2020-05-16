@@ -1,10 +1,8 @@
 FROM alpine:3.11 as base
 
-
-
 RUN apk add --no-cache --update \
     ca-certificates \
-    tzdata \
+    tzdata && \
     update-ca-certificates
 
 ARG TERRARIA_VERSION=1353
