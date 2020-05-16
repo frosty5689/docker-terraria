@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CMD="mono ./TerrariaServer.exe -x64 -config /config/serverconfig.txt -banlist /config/banlist.txt"
+CMD="mono --server --gc=sgen -O=all ./TerrariaServer.exe -config /config/serverconfig.txt -banlist /config/banlist.txt"
 
 # Create default config files if they don't exist
 if [ ! -f "/config/serverconfig.txt" ]; then
