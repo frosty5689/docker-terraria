@@ -1,7 +1,7 @@
 #!/bin/sh
 set -euo pipefail
 
-CMD="./TerrariaServer -x64 -config /config/serverconfig.txt -banlist /config/banlist.txt"
+CMD="mono ./TerrariaServer.exe -x64 -config /config/serverconfig.txt -banlist /config/banlist.txt"
 
 # Create default config files if they don't exist
 if [ ! -f "/config/serverconfig.txt" ]; then
@@ -21,7 +21,7 @@ if [ "${WORLD:-null}" != null ]; then
     CMD="$CMD -world /config/$WORLD"
 fi
 
-CMD="screen -dmS terraria /bin/bash -c '$CMD'"
+CMD="screen -dmS terraria /bin/sh -c '$CMD'"
 
 pid=0
 
