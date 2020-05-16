@@ -9,7 +9,7 @@ RUN apk add --no-cache --update \
     apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
     update-ca-certificates
 
-ARG TERRARIA_VERSION=1353
+ARG TERRARIA_VERSION=1401
 
 RUN apk add --no-cache --update --virtual build-dependencies wget unzip && \
     wget -O /tmp/terraria-$TERRARIA_VERSION.zip http://terraria.org/server/terraria-server-$TERRARIA_VERSION.zip && \
